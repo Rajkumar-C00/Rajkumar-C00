@@ -1,0 +1,19 @@
+yaml
+name: Check PR Source Branch
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  check-source-branch:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check source branch
+      if: github.base_ref == 'release'
+      run: |
+        if [[ "${{ github.head_ref }}" != "dev" ]]; then
+          echo "Pull requests to release branch must come from the dev branch."
+          exit 1
+        fi
