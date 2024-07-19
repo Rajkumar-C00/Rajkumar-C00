@@ -12,7 +12,7 @@ jobs:
     steps:
     - name: Check if PR is from dev branch
       run: |
-        if [[ "${{ github.head_ref }}" != "dev" ]]; then
+        if [[ "${{ github.head_ref }}" != "development" ]]; then
           echo "Pull requests to release branch must come from the dev branch.";
           exit 1;
         fi
