@@ -1,18 +1,23 @@
 {
-  "name": "playwright-automation",
+  "name": "playwright-typescript",
   "version": "1.0.0",
-  "description": "Automated testing using Playwright",
-  "main": "index.js",
+  "description": "Playwright tests using TypeScript",
+  "main": "dist/index.js",  // Entry point for your compiled code
   "scripts": {
-    "test": "node testing/script.js"
+    "test": "playwright test",  // Command to run Playwright tests
+    "build": "tsc",  // Command to compile TypeScript files
+    "start": "node dist/index.js"  // Run the compiled code
   },
-  "author": "Your Name",
-  "license": "ISC",
   "dependencies": {
-    "playwright": "^1.20.0"
+    "playwright": "^1.22.0",  // Playwright library for browser automation
+    "typescript": "^4.5.4"  // TypeScript for transpiling TypeScript code
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/node": "^16.11.6",  // TypeScript definitions for Node.js
+    "@playwright/test": "^1.22.0"  // Playwright test framework (optional, if you're using it)
+  },
   "engines": {
-    "node": ">=16.0.0"
-  }
+    "node": ">=14.0.0"  // Minimum version of Node.js that your project will work with
+  },
+  "license": "MIT"  // Project license
 }
