@@ -5,11 +5,14 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "outDir": "./dist",  // Output compiled JavaScript to the 'dist' folder
-    "rootDir": "./src",  // Input TypeScript files will be in the 'src' folder
+    "outDir": "./dist",  // Compiled JavaScript files will go here
     "resolveJsonModule": true
   },
   "include": [
-    "src/**/*.ts"  // Include all TypeScript files in the 'src' directory
+    "*.ts"  // Look for TypeScript files in the root directory (or adjust if needed)
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
   ]
 }
