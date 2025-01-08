@@ -26,4 +26,4 @@ jobs:
         run: npx tsc  # Compile TypeScript files into JavaScript
 
       - name: Run Playwright Script
-        run: node launch-docker-webpage.js  # Run the compiled JavaScript file
+        run: node dist/launch-docker-webpage.js  # Run the compiled JavaScript file
