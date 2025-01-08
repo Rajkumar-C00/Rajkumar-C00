@@ -1,0 +1,29 @@
+name: Run Playwright Tests and Launch Docker Webpage
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-playwright:
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'  # Specify the version of Node.js
+
+      - name: Install dependencies
+        run: |
+          npm install  # Install dependencies from package.json
+          npx playwright install-deps  # Install system dependencies for browsers
+          npm install typescript @types/node @playwright/test  # Install TypeScript and Playwright types
+
+      - name: Compile TypeScript code
+        run: npx tsc  # Compile TypeScript files into JavaScript
+
+      - name: Run Playwright Script
+        run: node dist/launch-docker-webpage.js  # Run the compiled JavaScript file
