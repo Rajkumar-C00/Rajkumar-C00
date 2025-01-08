@@ -1,7 +1,12 @@
-name: Run Playwright Tests
+name: Run Playwright Script
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   run-playwright:
@@ -24,3 +29,4 @@ jobs:
 
     - name: Run Playwright Script
       run: node testing/script.js  # Adjust as needed
+
