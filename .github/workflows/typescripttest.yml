@@ -22,6 +22,9 @@ jobs:
           npx playwright install-deps  # Install system dependencies for browsers
           npm install typescript @types/node @playwright/test  # Install TypeScript and Playwright types
 
+      - name: Install Playwright browsers
+        run: npx playwright install  # Install the browsers required by Playwright
+
       - name: Compile TypeScript code
         run: npx tsc  # Compile TypeScript files into JavaScript
 
