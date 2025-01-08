@@ -20,7 +20,7 @@ jobs:
       run: npm install  # This should now work if package.json is in the root
 
     - name: Install Playwright dependencies
-      run: npx playwright install-deps
+      run: npx playwright install
 
     - name: Run Playwright Script
       run: node script.js  # Adjust as needed
