@@ -1,25 +1,27 @@
-name: Run Playwright Tests
+name: Run Playwright Script
 
 on:
   workflow_dispatch:
 
 jobs:
   run-playwright:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'  # Specify the version of Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '16'
 
-      - name: Install dependencies
-        run: |
-          npm install  # Install dependencies from package.json
-          npx playwright install-deps  # Install system dependencies for browsers
+    - name: Install dependencies
+      run: npm install  # This should now work if package.json is in the root
 
-      - name: Run Playwright script
-        run: node script.js  # Adjust path if necessary
+    - name: Install Playwright dependencies
+      run: npx playwright install
+
+    - name: Run Playwright Script
+      run: node script.js  # Adjust as needed
+
