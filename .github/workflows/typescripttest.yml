@@ -33,3 +33,10 @@ jobs:
 
       - name: Run Playwright Script with xvfb-run
         run: xvfb-run -a node dist/launch-docker-webpage.js  # Run the compiled JavaScript file
+
+      # Step to upload the screenshot as an artifact
+      - name: Upload screenshot as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docker-hub-screenshot
+          path: docker-hub-screenshot.png
